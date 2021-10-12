@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] 
     private GameObject MyCamera;
+    private GameObject AudioCue;
     private Light PointLight1;
     private float MoveSens = 0.05f;
     private float CamSens = 3.0f;
@@ -14,12 +15,14 @@ public class CameraMovement : MonoBehaviour
     private float pitch = 0.0f;
 
     public Camera camera;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         MyCamera = GameObject.FindWithTag("MainCamera");
         PointLight1 = GameObject.FindWithTag("PointLight1").GetComponent<Light>();
+        AudioCue = GameObject.FindWithTag("AudioCue");
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -71,7 +74,16 @@ public class CameraMovement : MonoBehaviour
                 } else {
                     PointLight1.enabled = true;
                 }
+
                 Debug.Log("asd");
+            }   
+            if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "AudioCue") {
+                if(audioSource.isPlaying == false){
+                    audioSource.Play();
+                } else{
+                    audioSource.Pause();
+                }
+                Debug.Log("sad");   
             }
         } 
     }
