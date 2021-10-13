@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class CameraMovement : MonoBehaviour
 
         //sprint
         this.Sprint();
+
+        //back to main menu
+        this.goToMainMenu();
 
         if(!disco )
         {
@@ -137,6 +141,13 @@ public class CameraMovement : MonoBehaviour
             MoveSens = 0.5f;
         } else {
             MoveSens = 0.05f;
+        }
+    }
+
+    public void goToMainMenu() {
+        if(Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.Space)) {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
