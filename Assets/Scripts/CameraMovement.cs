@@ -90,7 +90,7 @@ public class CameraMovement : MonoBehaviour
         if(Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "buttonPL1") {
+            if (Physics.Raycast(ray, out hit, 5.0f) && hit.transform.tag == "buttonPL1") {
                 if(PointLight1.enabled == true) {
                     PointLight1.enabled = false;
                     Debug.Log("Lights Off");
@@ -101,7 +101,7 @@ public class CameraMovement : MonoBehaviour
 
                 }
             }
-            if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "buttonPL2") {
+            if (Physics.Raycast(ray, out hit, 5.0f) && hit.transform.tag == "buttonPL2") {
                 if(PointLight2.enabled == true) {
                     PointLight2.enabled = false;
                     Debug.Log("Lights Off");
@@ -110,7 +110,7 @@ public class CameraMovement : MonoBehaviour
                     Debug.Log("Lights On");
                 }
             }
-            if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "buttonPL3") {
+            if (Physics.Raycast(ray, out hit, 5.0f) && hit.transform.tag == "buttonPL3") {
                 if(PointLight3.enabled == true) {
                     PointLight3.enabled = false;
                     Debug.Log("Lights Off");
@@ -120,7 +120,7 @@ public class CameraMovement : MonoBehaviour
 
                 }
             }
-            if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "AudioCue") {
+            if (Physics.Raycast(ray, out hit, 5.0f) && hit.transform.tag == "AudioCue") {
                 if(audioSource.isPlaying == false){
                     audioSource.Play();
                     Debug.Log("Audio Played"); 
@@ -139,6 +139,4 @@ public class CameraMovement : MonoBehaviour
             MoveSens = 0.05f;
         }
     }
-
-    
 }
