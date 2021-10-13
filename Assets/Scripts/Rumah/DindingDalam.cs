@@ -160,8 +160,8 @@ public class DindingDalam : MonoBehaviour
             28,30,31,
 
             //atas
-            32,33,34,
-            32,34,35,
+            // 32,33,34,
+            // 32,34,35,
 
             //lis pintu
             //kiri
