@@ -35,6 +35,7 @@ public class Lantai : MonoBehaviour
             0,2,1
         };
 
+        mesh.RecalculateNormals();
         GetComponent<MeshFilter>().mesh = mesh;
 
         GetComponent<MeshRenderer>().material = floorMaterial;

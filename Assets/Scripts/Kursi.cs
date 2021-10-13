@@ -592,6 +592,8 @@ public class Kursi : MonoBehaviour
             46,47,49
         };
 
+        mesh.RecalculateNormals();
+
         GetComponent<MeshFilter>().mesh = mesh;
 
         GetComponent<MeshRenderer>().material = KursiMaterial;

@@ -6,6 +6,12 @@ TagManager:
   tags:
   - PointLight1
   - buttonPL1
+  - AudioCue
+  - playMusic
+  - buttonPL2
+  - PointLight2
+  - PointLight3
+  - buttonPL3
   layers:
   - Default
   - TransparentFX

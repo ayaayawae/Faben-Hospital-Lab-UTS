@@ -90,6 +90,7 @@ public class Atap : MonoBehaviour
         vertices[39] = new Vector3(13.0f, 19.0f, -12.0f);
 
         mesh.vertices = vertices;
+        mesh.uv = uvs;
 
         mesh.triangles = new int[] {
             //bawah
@@ -133,7 +134,10 @@ public class Atap : MonoBehaviour
             36,38,37
         };
         
-        mesh.uv = uvs;
+        
+
+        mesh.RecalculateNormals();
+
         GetComponent<MeshFilter>().mesh = mesh;
 
         GetComponent<MeshRenderer>().material = AtapMaterial;

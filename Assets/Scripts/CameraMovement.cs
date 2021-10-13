@@ -7,7 +7,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] 
     private GameObject MyCamera;
     private GameObject AudioCue;
-    private Light PointLight1;
+    private Light PointLight1, PointLight2, PointLight3;
     private float MoveSens = 0.05f;
     private float CamSens = 3.0f;
 
@@ -22,6 +22,8 @@ public class CameraMovement : MonoBehaviour
     {
         MyCamera = GameObject.FindWithTag("MainCamera");
         PointLight1 = GameObject.FindWithTag("PointLight1").GetComponent<Light>();
+        PointLight2 = GameObject.FindWithTag("PointLight2").GetComponent<Light>();
+        PointLight3 = GameObject.FindWithTag("PointLight3").GetComponent<Light>();
         AudioCue = GameObject.FindWithTag("AudioCue");
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -37,6 +39,9 @@ public class CameraMovement : MonoBehaviour
 
         // object detection with crosshair
         this.RayCast();
+
+        //sprint
+        this.Sprint();
     }
 
     public void LookRotation()     
@@ -77,7 +82,27 @@ public class CameraMovement : MonoBehaviour
                     Debug.Log("Lights On");
 
                 }
-            }   
+            }
+            if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "buttonPL2") {
+                if(PointLight2.enabled == true) {
+                    PointLight2.enabled = false;
+                    Debug.Log("Lights Off");
+                } else {
+                    PointLight2.enabled = true;
+                    Debug.Log("Lights On");
+
+                }
+            }
+            if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "buttonPL3") {
+                if(PointLight3.enabled == true) {
+                    PointLight3.enabled = false;
+                    Debug.Log("Lights Off");
+                } else {
+                    PointLight3.enabled = true;
+                    Debug.Log("Lights On");
+
+                }
+            }
             if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "AudioCue") {
                 if(audioSource.isPlaying == false){
                     audioSource.Play();
@@ -88,5 +113,13 @@ public class CameraMovement : MonoBehaviour
                 }   
             }
         } 
+    }
+
+    public void Sprint() {
+        if(Input.GetKey(KeyCode.LeftShift)) {
+            MoveSens = 1.0f;
+        } else {
+            MoveSens = 0.05f;
+        }
     }
 }

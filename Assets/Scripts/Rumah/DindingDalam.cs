@@ -14,7 +14,7 @@ public class DindingDalam : MonoBehaviour
         var vertices = new Vector3[48];
         var uvs = new Vector2[vertices.Length];
 
-        myTexture = Resources.Load<Texture>("Textures/wallpaper");
+        myTexture = Resources.Load<Texture>("Textures/wallpaper2");
         DindingDalamMaterial.mainTexture = myTexture;
 
         //depan
@@ -175,6 +175,8 @@ public class DindingDalam : MonoBehaviour
             40,42,43
         };
         
+        mesh.RecalculateNormals();
+
         GetComponent<MeshFilter>().mesh = mesh;
         GetComponent<MeshRenderer>().material = DindingDalamMaterial;
     }

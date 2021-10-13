@@ -163,7 +163,7 @@ public class DindingLuar : MonoBehaviour
             37,36,35
         };
         
-
+        mesh.RecalculateNormals();
         GetComponent<MeshFilter>().mesh = mesh;
         GetComponent<MeshRenderer>().material = DindingLuarMaterial;
     }
