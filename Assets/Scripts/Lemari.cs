@@ -7,7 +7,7 @@ using UnityEngine;
 public class Lemari : MonoBehaviour
 {
     public int xSize, ySize, zSize;
-    private float roundness = 0.00f;
+    private float roundness = 0.0001f;
 
     // public Material material;
     private Vector3[] vertices;
