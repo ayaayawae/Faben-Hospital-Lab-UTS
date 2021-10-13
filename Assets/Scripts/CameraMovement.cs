@@ -71,19 +71,21 @@ public class CameraMovement : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "buttonPL1") {
                 if(PointLight1.enabled == true) {
                     PointLight1.enabled = false;
+                    Debug.Log("Lights Off");
                 } else {
                     PointLight1.enabled = true;
-                }
+                    Debug.Log("Lights On");
 
-                Debug.Log("asd");
+                }
             }   
             if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "AudioCue") {
                 if(audioSource.isPlaying == false){
                     audioSource.Play();
+                    Debug.Log("Audio Played"); 
                 } else{
                     audioSource.Pause();
-                }
-                Debug.Log("sad");   
+                    Debug.Log("Audio Paused"); 
+                }   
             }
         } 
     }
