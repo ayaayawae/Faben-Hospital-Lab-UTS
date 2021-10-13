@@ -15,7 +15,7 @@ public class LangitRumah : MonoBehaviour
         var vertices = new Vector3[48];
         var uvs = new Vector2[vertices.Length];
 
-        myTexture = Resources.Load<Texture>("Textures/wallpaper");
+        myTexture = Resources.Load<Texture>("Textures/cracks");
         LangitRumahMaterial.mainTexture = myTexture;
 
         //atas

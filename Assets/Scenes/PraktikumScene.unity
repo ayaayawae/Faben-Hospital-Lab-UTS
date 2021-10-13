@@ -1884,7 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LangitRumahMaterial: {fileID: 2100000, guid: f988ec49c79276d41b53221dd8c64522, type: 2}
-  myTexture: {fileID: 2800000, guid: d6fc504ee2b3d14489f00a177b003ce6, type: 3}
+  myTexture: {fileID: 2800000, guid: f3782e25c54a4724080ba1977d6e6999, type: 3}
 --- !u!23 &1177362226
 MeshRenderer:
   m_ObjectHideFlags: 0

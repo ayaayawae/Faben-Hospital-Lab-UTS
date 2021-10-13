@@ -17,6 +17,8 @@ public class CameraMovement : MonoBehaviour
     public Camera camera;
     public AudioSource audioSource;
 
+    private bool disco = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,21 @@ public class CameraMovement : MonoBehaviour
 
         //sprint
         this.Sprint();
+
+        if(!disco )
+        {
+            StartCoroutine( HandleDisco() );
+            PointLight1.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        }
+    }
+
+    private IEnumerator HandleDisco()
+    {
+        disco = true;
+        // process pre-yield
+        yield return new WaitForSeconds( 0.5f );
+        // process post-yield
+        disco = false;
     }
 
     public void LookRotation()     
@@ -78,6 +95,7 @@ public class CameraMovement : MonoBehaviour
                     PointLight1.enabled = false;
                     Debug.Log("Lights Off");
                 } else {
+
                     PointLight1.enabled = true;
                     Debug.Log("Lights On");
 
@@ -90,7 +108,6 @@ public class CameraMovement : MonoBehaviour
                 } else {
                     PointLight2.enabled = true;
                     Debug.Log("Lights On");
-
                 }
             }
             if (Physics.Raycast(ray, out hit, 2.0f) && hit.transform.tag == "buttonPL3") {
@@ -117,9 +134,11 @@ public class CameraMovement : MonoBehaviour
 
     public void Sprint() {
         if(Input.GetKey(KeyCode.LeftShift)) {
-            MoveSens = 1.0f;
+            MoveSens = 0.5f;
         } else {
             MoveSens = 0.05f;
         }
     }
+
+    
 }
