@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PeopleSpawner : MonoBehaviour
 {
-    public float timeBetweenSpawns;
-    public float spawnDistance;
+    float timeBetweenSpawns = 3.0f;
+    float spawnDistance = 0.0f;
     public GameObject[] people;
     public
     float timeSinceLastSpawn;

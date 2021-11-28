@@ -7,16 +7,23 @@ using static UnityEngine.Random;
 
 
 public class Movement : MonoBehaviour
-{   string direction;
+{   
+    string direction;
     int room;
     bool stop = false;
     bool begin = true;
-    int onProgress = 3;
     bool firstTurnExit = false;
+
+    int onProgress = 3;
     int totalRoom = 9; // Ini 8
+    
+
     public Text MoneyText;
     int MoneyValue;
     int MoneyPlus = 10;
+    int speed = 3;
+
+    Animator doorAnimator;
 
     void Start()
     {
@@ -33,17 +40,17 @@ public class Movement : MonoBehaviour
     void Update()
     {   
         if(!stop && begin){
-            transform.position += transform.forward * Time.deltaTime * 7;
+            transform.position += transform.forward * Time.deltaTime * speed;
         }
 
         if(!begin){
-            transform.position += transform.forward * Time.deltaTime * 7;
+            transform.position += transform.forward * Time.deltaTime * speed;
         }
     }
 
     public void OnTriggerEnter (Collider col){
         if(!begin && !firstTurnExit){
-            if(room  < 5){
+            if(room < 5){
                     transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
                 }else{
                     transform.Rotate(0.0f, -90.0f, 0.0f, Space.Self);
@@ -51,6 +58,7 @@ public class Movement : MonoBehaviour
             firstTurnExit = true;
         }else{
             if(room.ToString() == col.gameObject.name){
+                openDoor();
                 if(room  < 5){
                     transform.Rotate(0.0f, -90.0f, 0.0f, Space.Self);
                 }else{
@@ -75,9 +83,11 @@ public class Movement : MonoBehaviour
         begin = false;
     }
 
-    
-
     void FixedUpdate(){
+        
+    }
+
+    void toggleDoor(){
         
     }
 }
