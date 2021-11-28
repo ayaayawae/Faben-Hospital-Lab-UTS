@@ -12,6 +12,14 @@ TagManager:
   - PointLight2
   - PointLight3
   - buttonPL3
+  - pintu1
+  - pintu2
+  - pintu3
+  - pintu4
+  - pintu5
+  - pintu6
+  - pintu7
+  - pintu8
   layers:
   - Default
   - TransparentFX

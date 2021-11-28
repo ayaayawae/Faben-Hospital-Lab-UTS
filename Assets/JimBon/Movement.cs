@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     int MoneyPlus = 10;
     int speed = 3;
 
-    Animator doorAnimator;
+    public Animator door1, door2, door3, door4, door5, door6, door7, door8;
 
     void Start()
     {
@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
             firstTurnExit = true;
         }else{
             if(room.ToString() == col.gameObject.name){
-                openDoor();
+                toggleDoor(room);
                 if(room  < 5){
                     transform.Rotate(0.0f, -90.0f, 0.0f, Space.Self);
                 }else{
@@ -78,6 +78,8 @@ public class Movement : MonoBehaviour
         MoneyValue = int.Parse(MoneyText.text);
         MoneyValue += MoneyPlus;
         MoneyText.text = MoneyValue.ToString();
+
+        toggleDoor(room);
         transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
         transform.position += -transform.forward;
         begin = false;
@@ -87,7 +89,25 @@ public class Movement : MonoBehaviour
         
     }
 
-    void toggleDoor(){
-        
+    void toggleDoor(int doorNum){
+        switch(doorNum){
+            case 1: door1.SetTrigger("open");
+            break;
+            case 2: door2.SetTrigger("open");
+            break;
+            case 3: door3.SetTrigger("open");
+            break;
+            case 4: door4.SetTrigger("open");
+            break;
+            case 5: door5.SetTrigger("open");
+            break;
+            case 6: door6.SetTrigger("open");
+            break;
+            case 7: door7.SetTrigger("open");
+            break;
+            case 8: door8.SetTrigger("open");
+            break;
+        }
+        // door1.SetBool("open", false);
     }
 }
